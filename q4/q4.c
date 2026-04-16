@@ -14,6 +14,8 @@ int main()
         char libname[32];
         snprintf(libname, sizeof(libname), "lib%s.so", operand);
 
+        dlerror();
+
         void *handle = dlopen(libname, RTLD_LAZY);
 
         dlerror();
