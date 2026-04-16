@@ -8,9 +8,8 @@ int main()
     char operand[6];
     int num1, num2;
 
-    while (1)
+    while (scanf("%5s %d %d", operand, &num1, &num2) == 3)
     {
-        scanf("%s %d %d", operand, &num1, &num2);
 
         char libname[32];
         snprintf(libname, sizeof(libname), "lib%s.so", operand);
