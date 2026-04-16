@@ -159,5 +159,5 @@ exit:
     ld s5, 48(sp)
     ld s6, 56(sp)
     ld s7, 64(sp)
-    addi sp, sp, 64
+    addi sp, sp, 80
     ret
