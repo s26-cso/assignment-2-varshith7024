@@ -1,7 +1,7 @@
 .section .rodata
-fmt: .string "%d "
-nl: .string "\n"
-
+fmt_first: .string "%d"
+fmt_space: .string " %d"
+nl:        .string "\n"
 .text
 .global main
 
@@ -139,10 +139,20 @@ print_loop:
     add t1, s4, t1
     lw t2, 0(t1)
 
-    mv a1, t2
-    la a0, fmt
-    call printf
+    beqz s7, print_first
 
+    mv a1, t2
+    la a0, fmt_space
+    call printf
+    j next_print
+
+print_first:
+    mv a1, t2
+    la a0, fmt_first
+    call printf
+    j next_print
+
+next_print:
     addi s7, s7, 1
     j print_loop
 
